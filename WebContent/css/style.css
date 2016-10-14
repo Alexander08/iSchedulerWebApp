@@ -1,0 +1,271 @@
+* {
+	text-decoration: none;
+}
+
+body {
+	
+}
+
+div#upperSide {
+	height: 345px;
+	border-bottom: 2px solid #000;
+}
+
+div#lowerSide {
+	height: 345px;
+}
+
+p#lowerSideTitle {
+	margin: 0;
+	text-align:center;
+	margin-top: 5px;
+	border-top: 2px solid #00s0;
+}
+
+ul.tab {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	boxrder: 1px solid #ccc;
+	width: 100%;;
+	z-index: 0;
+	background: rgba(255, 255, 255, 0.9);
+	background: linear-gradient(to right, silver, white);
+}
+
+/* Float the list items side by side */
+ul.tab li {
+	float: left;
+	margin: 0;
+}
+
+/* Style the links inside the list items */
+ul.tab li a {
+	display: inline-block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	transition: 0.3s;
+	font-size: 17px;
+	box-shadow: inset 0px 0px 20px #ffffff;
+	border: 1px solid black;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {
+	background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {
+	background-color: #ccc;
+}
+
+aside p {
+	margin: 25px;
+	font-size: 110%;
+	font-weight: bold;
+}
+
+td>p {
+	display: inline;
+	background-color: rgba(0, 0, 0, 0.7);
+	color: white;
+	padding: 5px;
+}
+
+li {
+	display: inline;
+	margin-right: 10px;
+	list-style: none;
+}
+
+input[type=button] {
+	display: inline;
+	margin-right: 10px;
+	width: 170px;
+	height: 50px;
+	font-size: 150%;
+}
+
+label {
+	display: block;
+	font-size: 125%;
+	font-weight: bold;
+}
+
+label>input {
+	height: 30px;
+	float: right;
+	width: 30%;
+	margin-right: 45%;
+}
+
+label>input[type=checkbox] {
+	height: 30px;
+	float: right;
+	width: 30%;
+	margin-right: 57%;
+}
+
+fieldset>input[type=button] {
+	display: block;
+	margin: 3% auto;
+}
+
+div {
+	overflow: auto;
+}
+
+div.flow {
+	float: right;
+}
+
+header {
+	overflow: auto;
+	display: block;
+	margin: 3%;
+	margin-top: 3%;
+}
+
+#previous {
+	float: left;
+}
+
+#next {
+	float: right;
+}
+
+#changeButtons {
+	margin-right: 5%;
+}
+/*--------------------- popup-------------------*/
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 111;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+h2.titlePopup {
+	text-align: center;
+}
+/* Modal Content */
+.modal-content {
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 40%;
+}
+
+/* The Close Button */
+.close {
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/*--------------------- content-----------------*/
+#content {
+	width: 90%;
+	margin: 0 auto;
+}
+
+#table {
+	margin-left: 1%;
+	width: 61%;
+	border: 1px solid black;
+	padding: 1%;
+	box-shadow: 0 10px 20px #ccc;
+	height: 745px;
+	background-color: rgba(255, 255, 255, 0.8);
+	margin-bottom: 3%;
+}
+
+#tableHeader {
+	width: 100%;
+	height: 65px;
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.8);
+	margin-bottom: 1%;
+	border-bottom: 2px solid black;
+}
+
+aside {
+	border: 1px solid black;
+	box-shadow: 0 10px 20px #ccc;
+	float: left;
+	overflow: auto;
+	width: 30%;
+	margin-left: 1%;
+	margin-right: 2%;
+	height: 781px;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+th, td {
+	width: 7%;
+	margin-left: 2%;
+	background-color: #ccc;
+	border: 1px solid black;
+}
+
+td {
+	text-align: center;
+	height: 100px;
+	background: transparent;
+}
+
+td:hover {
+	box-shadow: inset 0px 0px 20px #ffff00;
+}
+p.lmonth{
+	background-color: #ccc;
+}
+
+.monthYear {
+	width: 500px;
+	margin: 20px;
+}
+
+table.monthYear {
+	height: 100px;
+}
+
+.summer {
+	background-image: url("../images/summer.jpg");
+}
+
+.winter {
+	background-image: url("../images/winter.jpg");
+}
+
+.spring {
+	background-image: url("../images/spring.jpg");
+}
+
+.autumn {
+	background-image: url("../images/autumn.jpg");
+}
+
+/******************** for events ****************************/
+.hasEvent {
+	background-color: rgba(255, 0, 0, 0.4);
+}

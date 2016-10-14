@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>iScheduler Web App</title>
+
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+<script type="text/javascript" src="js/table.js">
+	
+</script>
+<script type="text/javascript" src="js/event.js">
+	
+</script>
+</head>
+<body>
+	<header>
+		<nav>
+			<div id="previous">
+				<input type="button" onClick="changeTablePrev();" value="&lt; Previous">
+			</div>
+			<div id="next" class="flow">
+				<input type="button" onClick="changeTableNext();" value="Next &gt;">
+			</div>
+			<div id="changeButtons" class="flow">
+				<input type="button" onClick="changeTableYear();" value="Year">
+				<input type="button" onClick="changeTableMonth();" value="Month">
+				<input type="button" onClick="" value="Week">
+				<input type="button" onClick="" value="Day">
+				<input type="button" onClick="changeTableToday();" value="Today">
+			</div>
+		</nav>
+	</header>
+
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">×</span>
+			<h2 class="titlePopup">Save or edit an event</h2>
+			<form name="eventwindow">
+				<fieldset>
+					<legend>Add Event</legend>
+					<label>
+						Title:
+						<input type="text" name="title">
+					</label>
+					<br />
+					<label>
+						Description:
+						<input type="text" name="description">
+					</label>
+					<br />
+					<label>
+						Start Date:
+						<input type="datetime-local" name="startDate">
+					</label>
+					<br />
+					<label>
+						End Date:
+						<input type="datetime-local" name="endDate">
+					</label>
+					<br />
+					<label>
+						Reminder:
+						<input type="checkbox" name="reminder">
+					</label>
+					<br />
+					<label>
+						Reminder Date:
+						<input type="datetime-local" name="reminderDate">
+					</label>
+					<br />
+					<label>
+						Set Priority:
+						<input type="text" name="priority">
+					</label>
+					<br />
+					<input type="button" name="submit" value="Save Event" onclick="addEvent();">
+				</fieldset>
+			</form>
+		</div>
+
+	</div>
+
+	<div id="content">
+		<div id="tableHeader"></div>
+		<aside>
+			<ul class="tab">
+				<li><a href="javascript:void(0)" class="tablinks"
+					onclick="changeTab(event, 'contentLog')"
+				>Events Log</a></li>
+				<li><a href="javascript:void(0)" class="tablinks"
+					onclick="changeTab(event, 'contentToday')"
+				>Event for today</a></li>
+
+			</ul>
+			<div id="upperSide">
+				<div id="contentLog" class="tabcontent"></div>
+				<div id="contentToday" class="tabcontent"></div>
+			</div>
+			<p id="lowerSideTitle">Quick preview for this day</p>
+			<div id="lowerSide"><hr/></div>
+		</aside>
+		<div id="table">
+			<table>
+				<thead id="headerTable">
+
+				</thead>
+				<tbody id="contentTable">
+					<script type="text/javascript">
+						fillTable();
+					</script>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<footer></footer>
+</body>
+</html>
