@@ -257,3 +257,60 @@ function changeTab(evt, tabName) {
 
 	// evt.currentTarget.className += " active";
 }
+
+/** ***************code For (A) week ************************************* */
+
+function fillTableDay(year, month, day) {
+
+	document.getElementsByTagName("aside")[0].style.display = "block";
+	document.getElementById("table").style.width = "61%";
+
+	var content = "<tr>";
+
+	changingDate = new Date(year, month, day);
+	changingDate.setHours(0);
+	document.getElementById("tableHeader").innerHTML = "<h3>"
+			+ months[changingDate.getMonth()] + "   "
+			+ actualDate.getFullYear() + "</h3>";
+
+	for (var i = 0; i < 24; i++) {
+
+		content += "<td onclick='' ondblclick='' onmouseover='' data-eventInfo='"
+				+ changingDate.toISOString().slice(0, 19)
+				+ "'><p>"
+				+ changingDate.toString().slice(16, 24);
+
+		changingDate.setHours(changingDate.getHours() + 1);
+		
+		content += " - " + changingDate.toString().slice(16, 24) + "</p></td>";
+		content += "</tr><tr>";
+	}
+	content += "</tr>";
+
+	return content;
+}
+
+function fillTableDayHeader(day) {
+
+	var content = "<tr>";
+	content += "<th><h3>" + days[day] + "</h3></th>";
+	content += "</tr>";
+	return content;
+}
+
+function fillDay() {
+	actualDate = new Date();
+	setBackground(actualDate.getMonth());
+	document.getElementById("headerTable").innerHTML = fillTableDayHeader(mondayFirst(actualDate));
+	document.getElementById("contentTable").innerHTML = fillTableDay(actualDate
+			.getFullYear(), actualDate.getMonth(), actualDate.getDay());
+
+	// document.getElementById("headerTable").innerHTML =
+	// fillTableMonthHeader();
+
+}
+
+function formatDateToLocale(date){
+	date.setHours(date.getHours() - (date.getTimezoneOffset()/60));
+	return date;
+}
