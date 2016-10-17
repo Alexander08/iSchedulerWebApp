@@ -3,7 +3,7 @@
 }
 
 body {
-	
+
 }
 
 div#upperSide {
@@ -142,6 +142,29 @@ header {
 	margin-right: 5%;
 }
 /*--------------------- popup-------------------*/
+
+pre{
+	display: inline;
+	float: left;
+	position: relative;
+	top: -50px;
+	font-size: 150%;
+	margin-right: 20px;
+	margin-left: 10px;
+	border: 1px solid;
+	padding: 5px;
+}
+
+pre:hover{
+	background-color: rgb(121, 255, 170);
+	cursor: pointer;
+	box-shadow: 0px 0px 20px #89ffff;
+	font-weight: bold;
+}
+
+legend{
+	margin-bottom: 15px;
+}
 .modal {
 	display: none;
 	position: fixed;
@@ -249,6 +272,13 @@ table.monthYear {
 	height: 100px;
 }
 
+.tableWeek{
+	width: 100%;
+}
+.textSize{
+	font-size: 100%;
+}
+
 .summer {
 	background-image: url("../images/summer.jpg");
 }
@@ -268,4 +298,26 @@ table.monthYear {
 /******************** for events ****************************/
 .hasEvent {
 	background-color: rgba(255, 0, 0, 0.4);
+}
+#generalTable{
+	margin: 0 auto;
+}
+
+#eventContiner{
+	display: none;
+	height: 300px;
+}
+
+.eventInList{
+	padding: 5px;
+	background-color: rgba(255,255,255, 0.9);
+	border: 1px solid black;
+
+}
+.eventInList:hover{
+	box-shadow: inset 0px 0px 40px #20ffff;
+}
+
+.alittler{
+	background-color: rgba(236, 29, 224, 0.2);
 }

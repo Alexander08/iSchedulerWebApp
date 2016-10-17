@@ -1,118 +1,67 @@
-/*function Event() {
-
-	this.title = "";
-	this.description = "";
-	this.startDate = new Date();
-	this.endDate = new Date();
-	this.reminder = 0;
-	this.reminderDate = new Date();
-	this.priority = 0;
-}
- */
 function Event(title, description, startDate, endDate, reminder, reminderDate,
-		priority) {
+               priority) {
 
-	this.title = title;
-	this.description = description;
-	this.startDate = startDate;
-	this.endDate = endDate;
-	this.reminder = reminder;
-	this.reminderDate = reminderDate;
-	this.priority = priority;
+    this.title = title;
+    this.description = description;
+    this.startDate = startDate;
+    this.endDate = endDate;
+    this.reminder = reminder;
+    this.reminderDate = reminderDate;
+    this.priority = priority;
 
-	this.printEvent = function() {
-		var content = "Title:&#9;" + this.title + " <br/>Description:&#9;&#9; "
-				+ this.description + "<br/>Start Date:&#9;&#9; " + this.startDate
-				+ " <br/>End Date:&#9;&#9; " + this.endDate + " <br/>Reminder:&#9;&#9; "
-				+ this.reminderDate + " <br/>Priority:&#9;&#9; " + this.priority;
-		return content;
-	}
-}
-/*
- * function Event(event) {
- * 
- * this.title = event.title; this.description = event.description;
- * this.startDate = event.startDate; this.endDate = event.endDate; this.reminder =
- * event.reminder; this.reminderDate = event.reminderDate; this.priority =
- * event.priority; }
- */
-// need to work on this!
-function checkEvent(event) {
-
-	return event.startDate.getDate() == (new Date()).getDate();
+    this.printEvent = function() {
+        var content = "Title:&#9;" + this.title + " <br/>Description:&#9; "
+            + this.description + "<br/>Start Date:&#9;" + this.startDate
+            + " <br/>End Date:&#9; " + this.endDate + " <br/>Reminder:&#9;"
+            + this.reminderDate + " <br/>Priority:&#9; " + this.priority;
+        return content;
+    }
 }
 
 /** ************************ global var and work******************************* */
 
-var eventList = new Array();
-var index = 0;
-
 function addEvent() {
 
-	title = document.eventwindow.title.value;
-	description = document.eventwindow.description.value;
-	startDate = document.eventwindow.startDate.value;
-	endDate = document.eventwindow.endDate.value;
-	reminder = document.eventwindow.reminder.value;
-	reminderDate = document.eventwindow.reminderDate.value;
-	priority = document.eventwindow.priority.value;
+    var title = document.eventwindow.title.value;
+    var description = document.eventwindow.description.value;
+    var startDate = document.eventwindow.startDate.value;
+    var endDate = document.eventwindow.endDate.value;
+    var reminder = document.eventwindow.reminder.value;
+    var reminderDate = document.eventwindow.reminderDate.value;
+    var priority = document.eventwindow.priority.value;
 
-	var newEvent = new Event(title, description, startDate, endDate, reminder,
-			reminderDate, priority);
-	document.getElementById("contentLog").innerHTML += "<p> New Event was Created </p>"
-			+ "<p>" + newEvent.printEvent() + "</p><hr/>";
+    var newEvent = new Event(title, description, startDate, endDate, reminder,
+        reminderDate, priority);
+    document.getElementById("contentLog").innerHTML += "<p> New Event was Created </p>"
+        + "<p>" + newEvent.printEvent() + "</p><hr/>";
 
-	eventList[index] = newEvent;
-	index++;
+  //  colorCell(startDate);
+    eventList[index] = newEvent;
+    index++;
 
-	var modal = document.getElementById('myModal');
-	modal.style.display = "none";
+    var modal = document.getElementById('myModal');
+    modal.style.display = "none";
 }
 
-function showWhenHover(event) {
+function deleteEvent(event){
 
-	date = event.getAttribute("data-eventInfo");
-	var d = new Date(date);
-
-	var todayEvents = new Array();
-	document.getElementById("lowerSide").innerHTML = "<hr/>";
-
-	for (var i = 0; i < eventList.length; i++) {
-
-		if (compareDate(new Date(eventList[i].startDate), d)) {
-			document.getElementById("lowerSide").innerHTML += "<p>"
-					+ eventList[i].printEvent() + "</p><hr/>";
-		}
-	}
-	// changeTab("a", "contentToday");
+    var idx = event.getAttribute("data-indexInList");
+    var someEvent = eventList[idx];
+    eventList.splice(idx, 1);
+    document.getElementById("contentLog").innerHTML += "<p class='alittler'> An Event has been Deleted </p>"
+        + "<p class='alittler'>" + someEvent.printEvent() + "</p><hr/>";
+    showEdit();
 }
-function showWhenClick(event) {
 
-	date = event.getAttribute("data-eventInfo");
-	var d = new Date(date);
+function colorCell(date){
 
-	var todayEvents = new Array();
-	document.getElementById("contentToday").innerHTML = "";
 
-	for (var i = 0; i < eventList.length; i++) {
+    for(cell in allCell){
+alert(cell);
+  //      if(cell.dataset.eventinfo == date.slice(0,19)){
+        if(cell.getAttribute("data-eventinfo") === date.slice(0,19)){
 
-		if (compareDate(new Date(eventList[i].startDate), d)) {
-			document.getElementById("contentToday").innerHTML += "<p>"
-					+ eventList[i].printEvent() + "</p><hr/>";
-		}
-	}
-	changeTab(event, "contentToday");
-}
-function compareDate(date1, date2) {
-
-	var result = false;
-
-	if (date1.getDate() != date2.getDate()) {
-		return false;
-	} else if (date1.getMonth() != date2.getMonth()) {
-		return false;
-	} else if (date1.getFullYear() != date2.getFullYear()) {
-		return false;
-	}
-	return true;
+            cell.className += " hasEvent";
+        }
+    }
 }
