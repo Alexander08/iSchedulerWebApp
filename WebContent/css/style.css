@@ -278,6 +278,9 @@ table.monthYear {
 .textSize{
 	font-size: 100%;
 }
+.textSizeWeek{
+	font-size: 75%;
+}
 
 .summer {
 	background-image: url("../images/summer.jpg");
@@ -306,6 +309,13 @@ table.monthYear {
 #eventContiner{
 	display: none;
 	height: 300px;
+}
+#canvas{
+	width: 100%;
+	height: 900px;
+	position: absolute;
+	margin: 0;
+	z-index: -100;
 }
 
 .eventInList{

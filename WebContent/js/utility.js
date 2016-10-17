@@ -23,20 +23,22 @@ var cacheDate;
 
 function setBackground(month) {
     if (month < 2) {
-
+    	startSnow();
         document.getElementById("content").className = "winter";
     } else if (month < 5) {
-
+    	stopSnow();
         document.getElementById("content").className = "spring";
     } else if (month < 8) {
-
+    	stopSnow();
         document.getElementById("content").className = "summer";
     } else if (month < 11) {
-
+    	stopSnow();
         document.getElementById("content").className = "autumn";
     } else if (month == 11) {
-
+    	
+    	
         document.getElementById("content").className = "winter";
+        startSnow();
     }
 }
 

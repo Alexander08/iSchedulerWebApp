@@ -14,15 +14,17 @@
     <script type="text/javascript" src="js/day.js"></script>
     <script type="text/javascript" src="js/year.js"></script>
     <script type="text/javascript" src="js/week.js"></script>
+    <script type="text/javascript" src="js/animation.js"></script>
 </head>
 <body>
+<canvas id="canvas"></canvas>
 <header>
     <nav>
         <div id="previous">
-            <input type="button" onClick="changeTablePrev();" value="&lt; Previous">
+            <input name="prev" type="button" onClick="changeTablePrev(this);" value="&lt; Previous">
         </div>
         <div id="next" class="flow">
-            <input type="button" onClick="changeTableNext();" value="Next &gt;">
+            <input name="nxt" type="button" onClick="changeTableNext(this);" value="Next &gt;">
         </div>
         <div id="changeButtons" class="flow">
             <input type="button" onClick="changeTableYear();" value="Year">
@@ -43,7 +45,7 @@
         <h2 class="titlePopup">Save or edit an event</h2>
         <form name="eventwindow">
             <fieldset>
-                <legend><pre onclick="document.getElementById('eventContiner').style.display='none';">Add Event</pre><pre onclick="showEdit()">Edit Event</pre></legend>
+                <legend><pre onclick="hideEdit()">Add Event</pre><pre onclick="showEdit()">Edit Event</pre></legend>
                 <label>Title:<input type="text" name="title"></label>
                 <br/>
                 <label>Description:<input type="text" name="description"></label>
@@ -83,7 +85,7 @@
     <div id="table">
         <table id="generalTable">
             <thead id="headerTable"></thead>
-            <tbody id="contentTable"><script type="text/javascript">createTableMonth();</script></tbody>
+            <tbody id="contentTable"><script type="text/javascript">createTableMonth(); snow();</script></tbody>
         </table>
     </div>
 </div>

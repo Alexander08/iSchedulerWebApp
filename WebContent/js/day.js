@@ -20,6 +20,7 @@ function createTableDayContent(year, month, day) {
         dataTable.setAttribute("data-eventInfo", changingDate.toISOString().slice(0, 19));
 
         var dataContent = document.createElement("p");
+        dataContent.setAttribute("class", "textSizeWeek");
         var dataText = document.createTextNode(changingDate.toString().slice(16, 24));
 
         changingDate.setHours(changingDate.getHours() + 1);
@@ -43,7 +44,6 @@ function createTableDayHeader(date) {
     var textContent = document.createElement("h3");
 
     var text = document.createTextNode(days[dayOfWeekMondayFirst(date)] + " " + date.toISOString().slice(0, 10).replace(/T/g, " "));
-
     textContent.appendChild(text);
     tableHeader.appendChild(textContent);
     content.appendChild(tableHeader);

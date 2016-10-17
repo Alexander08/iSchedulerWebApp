@@ -37,7 +37,7 @@ function TableHeaderWithDaysNamesWeek(weekOfYear) {
 
         var tableHeader = document.createElement("th");
         var textContent = document.createElement("h3");
-        textContent.setAttribute("class", "textSize");
+        textContent.setAttribute("class", "textSizeWeek");
         var text = document.createTextNode(days[dayOfWeekMondayFirst(date)] + " " + date.toString().slice(4, 15).replace(/T/g, " "));
 
         textContent.appendChild(text);
