@@ -9,7 +9,6 @@ function newRowInTable(i, content, tableRow) {
         tableRow = document.createElement("tr");
     }
     return {tableRow: tableRow, content: content};
-
 }
 
 function createTableData(date, tableRow, month) {
@@ -19,10 +18,6 @@ function createTableData(date, tableRow, month) {
     tableData.setAttribute("onclick", "showWhenClick(this)");
     tableData.setAttribute("ondblclick", "addEditEvent(this)");
     tableData.setAttribute("onmouseover", "showWhenHover(this)");
-
-    /*    tableData.onclick = showWhenClick;
-     tableData.ondblclick = addEditEvent;
-     tableData.onmouseover = showWhenHover;*/
 
     tableData.setAttribute("data-eventInfo", date.toISOString().slice(0, 19));
 

@@ -9,15 +9,15 @@ function Event(title, description, startDate, endDate, reminder, reminderDate,
 	this.reminderDate = reminderDate;
 	this.priority = priority;
 
-	this.printEvent = function() {
-		var content = "Title:&#9;" + this.title + " <br/>Description:&#9; "
-				+ this.description + "<br/>Start Date:&#9;" + this.startDate
-				+ " <br/>End Date:&#9; " + this.endDate + " <br/>Reminder:&#9;"
-				+ this.reminderDate + " <br/>Priority:&#9; " + this.priority;
-		return content;
-	}
+	this.printEvent = print;
 }
-
+function print(){
+	var content = "Title:&#9;" + this.title + " <br/>Description:&#9; "
+	+ this.description + "<br/>Start Date:&#9;" + this.startDate
+	+ " <br/>End Date:&#9; " + this.endDate + " <br/>Reminder:&#9;"
+	+ this.reminderDate + " <br/>Priority:&#9; " + this.priority;
+return content;
+}
 /** ************************ global var and work******************************* */
 
 function addEvent() {

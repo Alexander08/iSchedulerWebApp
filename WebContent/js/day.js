@@ -13,9 +13,9 @@ function createTableDayContent(year, month, day) {
     for (var i = 0; i < 24; i++) {
 
         var dataTable = document.createElement("td");
-        dataTable.setAttribute("onclick", "");
-        dataTable.setAttribute("ondblclick", "");
-        dataTable.setAttribute("onmouseover", "");
+        dataTable.setAttribute("onclick", "showWhenClick(this)");
+        dataTable.setAttribute("ondblclick", "addEditEvent(this)");
+        dataTable.setAttribute("onmouseover", "showWhenHover(this)");
 
         dataTable.setAttribute("data-eventInfo", changingDate.toISOString().slice(0, 19));
 

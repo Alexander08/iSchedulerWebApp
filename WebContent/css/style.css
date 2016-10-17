@@ -164,6 +164,7 @@ pre:hover{
 
 legend{
 	margin-bottom: 15px;
+	margin-top: 10px;
 }
 .modal {
 	display: none;
@@ -181,6 +182,7 @@ legend{
 
 h2.titlePopup {
 	text-align: center;
+    margin-bottom: 40px;
 }
 /* Modal Content */
 .modal-content {
