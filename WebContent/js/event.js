@@ -11,27 +11,33 @@ function Event(title, description, startDate, endDate, reminder, reminderDate,
 
 	this.printEvent = print;
 }
-function print(){
+function print() {
 	var content = "Title:&#9;" + this.title + " <br/>Description:&#9; "
-	+ this.description + "<br/>Start Date:&#9;" + this.startDate
-	+ " <br/>End Date:&#9; " + this.endDate + " <br/>Reminder:&#9;"
-	+ this.reminderDate + " <br/>Priority:&#9; " + this.priority;
-return content;
+			+ this.description + "<br/>Start Date:&#9;" + this.startDate
+			+ " <br/>End Date:&#9; " + this.endDate + " <br/>Reminder:&#9;"
+			+ this.reminderDate + " <br/>Priority:&#9; " + this.priority;
+	return content;
 }
 /** ************************ global var and work******************************* */
 
 function addEvent() {
 
-	var title = document.eventwindow.title.value;
-	var description = document.eventwindow.description.value;
-	var startDate = document.eventwindow.startDate.value;
-	var endDate = document.eventwindow.endDate.value;
+	var isValid = false;
+	var newEvent = new Event();
+
+	newEvent.title = document.eventwindow.title.value;
+	isValid = isValidTextField(newEvent.title, 't');
+
+	newEvent.description = document.eventwindow.description.value;
+	isValid = isValidTextField(newEvent.description, 'd');
+
+	newEvent.startDate = document.eventwindow.startDate.value;
+	newEvent.endDate = document.eventwindow.endDate.value;
+
 	var reminder = document.eventwindow.reminder.value;
 	var reminderDate = document.eventwindow.reminderDate.value;
 	var priority = document.eventwindow.priority.value;
 
-	var newEvent = new Event(title, description, startDate, endDate, reminder,
-			reminderDate, priority);
 	document.getElementById("contentLog").innerHTML += "<p> New Event was Created </p>"
 			+ "<p>" + newEvent.printEvent() + "</p><hr/>";
 
@@ -54,16 +60,31 @@ function deleteEvent(event) {
 }
 
 function findAnEvent(date) {
-	
+
 	var d = new Date(date);
 	d.setDate(d.getDate() + 1);
-	date = d.toISOString().slice(0,19);
-	
+	date = d.toISOString().slice(0, 19);
+
 	for (var i = 0; i < eventList.length; i++) {
-		
+
 		if (eventList[i].startDate.slice(0, 10) == date.slice(0, 10)) {
 			return true;
 		}
 	}
 	return false;
+}
+
+function isValidTextField(field, type) {
+	if (type == 't') {
+		if (field.length > 1 && field.length < 30) {
+			alert('Invalid title');
+			return false;
+		}
+	} else {
+		if (field.length > 1 && field.length < 255) {
+			alert('Invalid description');
+			return false;
+		}
+	}
+	return true;
 }

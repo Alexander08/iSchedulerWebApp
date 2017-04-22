@@ -1,51 +1,15 @@
-function changeTableToday() {
+function changeTableFormat(type, functionForFill){
 
 	actualDate = new Date();
-	createTableDay();
+	functionForFill();
 	colorCell();
-	document.getElementsByName("prev")[0].className = "d";
-	document.getElementsByName("nxt")[0].className = "d";
-}
-
-function changeTableDay() {
-
-	actualDate = new Date();
-	createTableDay();
-	colorCell();
-	document.getElementsByName("prev")[0].className = "d";
-	document.getElementsByName("nxt")[0].className = "d";
-}
-
-function changeTableWeek() {
-
-	actualDate = new Date();
-	createTableWeek();
-	colorCell();
-	document.getElementsByName("prev")[0].className = "w";
-	document.getElementsByName("nxt")[0].className = "w";
-}
-function changeTableMonth() {
-
-	actualDate = new Date();
-	createTableMonth();
-	colorCell();
-	document.getElementsByName("prev")[0].className = "m";
-	document.getElementsByName("nxt")[0].className = "m";
-}
-
-function changeTableYear() {
-
-	actualDate = new Date();
-	createTableYear();
-	colorCell();
-	document.getElementsByName("prev")[0].className = "y";
-	document.getElementsByName("nxt")[0].className = "y";
+	tableState = type;	
 }
 
 function changeTableNext(event) {
 
 	var type = event.getAttribute("class");
-	switch (type) {
+	switch (tableState) {
 	case "d": {
 		actualDate.setDate(actualDate.getDate() + 1);
 		createTableDay();

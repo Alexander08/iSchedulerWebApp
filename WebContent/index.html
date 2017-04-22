@@ -27,11 +27,11 @@
             <input name="nxt" type="button" onClick="changeTableNext(this);" value="Next &gt;">
         </div>
         <div id="changeButtons" class="flow">
-            <input type="button" onClick="changeTableYear();" value="Year">
-            <input type="button" onClick="changeTableMonth();" value="Month">
-            <input type="button" onClick="changeTableWeek()" value="Week">
-            <input type="button" onClick="changeTableDay()" value="Day">
-            <input type="button" onClick="changeTableToday();" value="Today">
+            <input type="button" onClick="changeTableFormat('y', createTableYear)" value="Year">
+            <input type="button" onClick="changeTableFormat('m', createTableMonth)" value="Month">
+            <input type="button" onClick="changeTableFormat('w', createTableWeek)" value="Week">
+            <input type="button" onClick="changeTableFormat('d', createTableDay)" value="Day">
+            <input type="button" onClick="changeTableFormat('d', createTableDay)" value="Today">
         </div>
     </nav>
 </header>

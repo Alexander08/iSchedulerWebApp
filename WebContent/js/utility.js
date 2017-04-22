@@ -19,6 +19,8 @@ var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
 
 var cacheDate;
 
+var tableState;
+
 /***************** Utility functions ***********************/
 
 function setBackground(month) {
