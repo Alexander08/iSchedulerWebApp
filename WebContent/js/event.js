@@ -76,12 +76,12 @@ function findAnEvent(date) {
 
 function isValidTextField(field, type) {
 	if (type == 't') {
-		if (field.length > 1 && field.length < 30) {
+		if (!(field.length > 1 && field.length < 30)) {
 			alert('Invalid title');
 			return false;
 		}
 	} else {
-		if (field.length > 1 && field.length < 255) {
+		if (!(field.length > 1 && field.length < 255)) {
 			alert('Invalid description');
 			return false;
 		}
